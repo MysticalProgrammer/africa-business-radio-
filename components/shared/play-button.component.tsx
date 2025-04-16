@@ -4,11 +4,11 @@ import { Icon } from "@iconify/react";
 // 	children: React.ReactNode;
 // }
 
-export function PlayButton() {
+export function PlayButton({buttonSize = 46, iconSize = 26}) {
 	return (
 		<>
-			<button type='button' className='flex items-center justify-center size-[46px] aspect-square rounded-full bg-[#CC0001]'>
-				<Icon icon="si:play-fill" className='size-[26px] text-white' />
+			<button type='button' className={`flex items-center justify-center size-[${buttonSize}px] aspect-square rounded-full bg-[#CC0001]`}>
+				<Icon icon="si:play-fill" className={`size-[${iconSize}px] text-white`} />
 			</button>
 		</>
 	);
