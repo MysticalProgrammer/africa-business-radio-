@@ -11,7 +11,7 @@ interface MultipleAdsDisplayProps {
 
 export function Episodes({title}: MultipleAdsDisplayProps) {
 	return (
-		<div className='container mx-auto space-y-[35px]'>
+		<div className='container mx-auto space-y-[35px] sm:px-0 px-4'>
 			<div className='flex justify-between items-center sm:px-0 px-[4px]'>
 				<div className='flex items-center h-[13px] mt-[6px] mb-[18px] border-l-[3px] border-[#CC0001]'>
 				<p className='text-[16px] font-[600] text-[#5A5A5A] pl-[5px]'>{title}</p>
