@@ -32,7 +32,7 @@ export function SubHeader() {
 
 	return (
 		<>
-			<div className="fixed lg:top-[72px] top-[50px] w-screen lg:h-[72px] h-[50px] bg-[#1B1B1B] shadow-[#00000026]">
+			<div className="fixed lg:top-[72px] top-[50px] w-screen lg:h-[72px] h-[50px] bg-[#1B1B1B] shadow-[#00000026] z-50">
 				<div className='container mx-auto flex lg:h-[72px] h-[50px] justify-between'>
 					<div>
 						<div className="md:absolute left-0 flex justify-between h-full md:w-[608px] w-full md:px-[16px] px-[8px] filter-[8px]" style={{backgroundImage: "url('/assets/images/studio.png')"}}>

@@ -53,7 +53,7 @@ const menu = [
 export function Header() {
 	return (
 		<>
-			<div className="fixed top-0 w-screen lg:h-[72px] h-[50px] bg-[#FCFCFC] z-10">
+			<div className="fixed top-0 w-screen lg:h-[72px] h-[50px] bg-[#FCFCFC] z-50">
 				<div className="container mx-auto lg:flex hidden justify-between h-full">
 					<div className="h-full py-2">
 						<Image
