@@ -10,6 +10,9 @@ import { EditorsPick } from '@/components/partials/landing-page/editors-pick.com
 import { Trending } from '@/components/partials/landing-page/trending.component';
 import { NewEpisodes } from '@/components/partials/landing-page/new-episodes.component';
 import { Episodes } from '@/components/partials/landing-page/episodes.component';
+import { MultipleAdsDisplay } from '@/components/partials/multiple-ads-display.component';
+import { EmailSubscribe } from '@/components/partials/email-subscribe.component';
+import { Sponsors } from '@/components/partials/landing-page/sponsors.component';
 
 
 export default function Home() {
@@ -36,23 +39,25 @@ export default function Home() {
       <NewEpisodes />
       <div className='container mx-auto my-[66px]'>
         <TitleTag backgroundColor='#F0E4FF'>
-          <p className='text-[24px] font-[800]'>LISTEN BY ABR CATEGORIES</p>
+          <p className='sm:text-[24px] text-[15px] font-[800]'>LISTEN BY ABR CATEGORIES</p>
         </TitleTag>
       </div>
-      <Episodes />
+      <Episodes title='News & Storytelling' />
       <AdsBoard>
-        <WhiteBoardAds>
-          <div>
-            <Image
-              src="/assets/images/FBN-ADVERT-2 1.png"
-              width={1000}
-              height={1000}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              alt="ads"
-            />
-          </div>
-        </WhiteBoardAds>
+        <MultipleAdsDisplay />
       </AdsBoard>
+      <div className='space-y-[85px]'>
+        <Episodes title='Educational' />
+        <Episodes title='Entertainment & Lifestyle' />
+        <Episodes title='Tech, Sport & Business' />
+        <Episodes title='Other Podcasts' />
+      </div>
+      <div className='mt-[150px] mb-[146px]'>
+        <EmailSubscribe />
+      </div>
+      <div className='mb-[127px]'>
+        <Sponsors />
+      </div>
     </div>
   );
 }

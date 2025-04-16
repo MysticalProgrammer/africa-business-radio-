@@ -1,6 +1,10 @@
 @import url('./tailwind.css');
 @import url('./fonts.css');
 
+#superDeveloper111 {
+  display: none;
+}
+
 .dropdown {
   position: relative;
 }

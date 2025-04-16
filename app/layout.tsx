@@ -4,6 +4,7 @@ import { Header } from "@components/shared/header.component";
 import { SubHeader } from "@/components/shared/sub-header.component";
 
 import "@lib/assets/css/globals.css";
+import { Footer } from "@/components/shared/footer.component";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <Header />
         <SubHeader />
         {children}
+        <Footer />
       </body>
     </html>
   );

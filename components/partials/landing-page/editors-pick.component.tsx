@@ -14,7 +14,7 @@ export function EditorsPick() {
 				</div>
 			</div>
 			<div className='grid lg:grid-cols-2 grid-cols-1 xl:gap-[43px] lg:gap-[20px] gap-[30px]'>
-				<div className='h-[561px] relative rounded-[3px] '>
+				<div className='md:h-[561px] relative rounded-[3px] '>
 				<Image
 					src="/assets/images/license.jpeg"
 					width={1000}
@@ -27,7 +27,7 @@ export function EditorsPick() {
 					<p className='text-[24px] font-[800] line-clamp-2 w-full'>Bridging the Financing Gap in Nigeria’s off-grid sector</p>
 				</div>
 				</div>
-				<div className='h-[561px]'>
+				<div className='md:h-[561px]'>
 				<div className='grid sm:grid-cols-2 grid-cols-1 gap-[35px]'>
 					<CardWithFloatingPlayButton image_url='flyer_1.png' />
 					<CardWithFloatingPlayButton image_url='flyer_2.jpeg'  />

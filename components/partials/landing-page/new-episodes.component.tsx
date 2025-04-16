@@ -17,8 +17,8 @@ import {
 export function NewEpisodes() {
 	return (
 		<div className='container mx-auto mb-[50px]'>
-			<div className='sm:px-0 px-[4px]'>
-			<p className='text-[24px] font-[700]'>Newly added episodes</p>
+			<div className='sm:px-0 px-[4px] mb-[29px] mt-[93px]'>
+				<p className='text-[24px] font-[700]'>Newly added episodes</p>
 			</div>
 			<CarouselModal>
 				<CarouselItem className="basis-[288px]">

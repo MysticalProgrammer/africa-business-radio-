@@ -7,8 +7,8 @@ import { Icon } from "@iconify/react";
 export function PlayButton({buttonSize = 46, iconSize = 26}) {
 	return (
 		<>
-			<button type='button' className={`flex items-center justify-center size-[${buttonSize}px] aspect-square rounded-full bg-[#CC0001]`}>
-				<Icon icon="si:play-fill" className={`size-[${iconSize}px] text-white`} />
+			<button type='button' className={`flex items-center justify-center h-[${buttonSize}px] size-[${buttonSize}px] aspect-square rounded-full bg-[#CC0001]`}>
+				<Icon icon="si:play-fill" width={26} height={26} className={`text-white`} />
 			</button>
 		</>
 	);
