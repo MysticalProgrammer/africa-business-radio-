@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image';
 import { Icon } from "@iconify/react";
 import { PlayButton } from '@/components/shared/play-button.component';
