@@ -13,6 +13,7 @@ import { CarouselModal } from '@/components/shared/carousel-modal.component';
 import {
   CarouselItem,
 } from "@/components/ui/carousel"
+import { SharedModel } from "@/components/shared/shared-model.component";
 
 export function NewEpisodes() {
 	return (
@@ -30,14 +31,14 @@ export function NewEpisodes() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="license"
 						/>
 						</div>
 					</CardContent>
 					<CardHeader className='p-0'>
 						<CardDescription className='flex items-center text-[13px] font-[700] gap-[14px]'>
 						<p>AUG 29, 2023</p>
-						<div className='size-[6px] rounded-full bg-red-400'></div>
+						<div className='size-[6px] rounded-full bg-[#828282]'></div>
 						<p className='ml-[-1px]'>45 MINS</p>
 						</CardDescription>
 						<CardTitle className='text-[16px] line-clamp-3'>
@@ -47,24 +48,26 @@ export function NewEpisodes() {
 					<CardFooter className='flex gap-[23px] p-0'>
 						<p className='text-[13px] font-[500]'>More Episodes</p>
 						<div className='flex gap-[11px]'>
-						<DefaultButton buttonSize={30}>
-							<Image
-							src="/assets/images/icons/share.svg"
-							width={1000}
-							height={1000}
-							style={{ width: "16.5px", height: "16.5px" }}
-							alt="ads"
-							/>
-						</DefaultButton>
-						<DefaultButton buttonSize={30}>
-							<Image
-							src="/assets/images/icons/gift.svg"
-							width={1000}
-							height={1000}
-							style={{ width: "18px", height: "18px" }}
-							alt="ads"
-							/>
-						</DefaultButton>
+							<SharedModel>
+								<DefaultButton buttonSize={30}>
+									<Image
+									src="/assets/images/icons/share.svg"
+									width={1000}
+									height={1000}
+									style={{ width: "16.5px", height: "16.5px" }}
+									alt="share"
+									/>
+								</DefaultButton>
+							</SharedModel>
+							<DefaultButton buttonSize={30}>
+								<Image
+								src="/assets/images/icons/gift.svg"
+								width={1000}
+								height={1000}
+								style={{ width: "18px", height: "18px" }}
+								alt="gift"
+								/>
+							</DefaultButton>
 						</div>
 					</CardFooter>
 					</Card>

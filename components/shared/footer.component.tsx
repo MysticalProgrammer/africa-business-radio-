@@ -42,7 +42,7 @@ export function Footer() {
 						width={1000}
 						height={1000}
 						style={{ objectFit: "cover", width: "100%", height: "100%" }}
-						alt="ads"
+						alt="logo"
 					/>
 				</div>
 				<div className='flex flex-wrap gap-[30px] uppercase mt-[49.5px]'>
@@ -54,51 +54,51 @@ export function Footer() {
 					<div className='flex gap-[10px] items-center text-[#C9C9C9] pr-[24.5px] h-[34px] leading-[34px] text-[16px] font-[700]'>
 						<p>CONNECT WITH ABR</p>
 						<div className='flex gap-[10px] h-[24px]'>
-							<div className='w-[24px]'>
+							<Link href="/" className='w-[24px]'>
 								<Image
 									src="/assets/images/icons/instagram.png"
 									width={1000}
 									height={1000}
 									style={{ objectFit: "cover", width: "100%", height: "100%" }}
-									alt="ads"
+									alt="instagram"
 								/>
-							</div>
-							<div className='w-[24px]'>
+							</Link>
+							<Link href="/" className='w-[24px]'>
 								<Image
 									src="/assets/images/icons/facebook.png"
 									width={1000}
 									height={1000}
 									style={{ objectFit: "cover", width: "100%", height: "100%" }}
-									alt="ads"
+									alt="facebook"
 								/>
-							</div>
-							<div className='w-[24px]'>
+							</Link>
+							<Link href="/" className='w-[24px]'>
 								<Image
 									src="/assets/images/icons/twitter.png"
 									width={1000}
 									height={1000}
 									style={{ objectFit: "cover", width: "100%", height: "100%" }}
-									alt="ads"
+									alt="twitter"
 								/>
-							</div>
-							<div className='w-[24px]'>
+							</Link>
+							<Link href="/" className='w-[24px]'>
 								<Image
 									src="/assets/images/icons/location.png"
 									width={1000}
 									height={1000}
 									style={{ objectFit: "cover", width: "100%", height: "100%" }}
-									alt="ads"
+									alt="location"
 								/>
-							</div>
-							<div className='w-[24px]'>
+							</Link>
+							<Link href="/" className='w-[24px]'>
 								<Image
 									src="/assets/images/icons/linkedin.png"
 									width={1000}
 									height={1000}
 									style={{ objectFit: "cover", width: "100%", height: "100%" }}
-									alt="ads"
+									alt="linkedin"
 								/>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>

@@ -20,7 +20,7 @@ export function Episodes({title}: MultipleAdsDisplayProps) {
 			</div>
 			<CarouselModal withButtons={false}>
 				<CarouselItem className="basis-[265px]">
-				<LandingPageEpisodeCard />
+					<LandingPageEpisodeCard />
 				</CarouselItem>
 			</CarouselModal>
 		</div>

@@ -20,7 +20,7 @@ export function Dropdown({ item }: DropdownProps) {
 		);
 	}else{
 		return (
-			<button type="button" className="dropdown grid place-content-center relative px-[17.5px] cursor-pointer z-10">
+			<button type="button" className="dropdown grid place-content-center relative px-[17.5px] cursor-pointer z-50">
 				<span className="flex font-[700] gap-[2px] items-center text-[15px] h-full">{item.name} <Icon icon="mingcute:down-fill" width="15" height="18" /></span>
 				<div>
 					<div className="dropdown-content text-sm">

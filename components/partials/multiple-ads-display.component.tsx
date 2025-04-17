@@ -9,7 +9,7 @@ export function MultipleAdsDisplay() {
 					width={1000}
 					height={1000}
 					style={{ objectFit: "cover", width: "100%", height: "100%" }}
-					alt="ads"
+					alt="pizza"
 				/>
 			</div>
 			<div className="md:min-w-[285px] md:w-[285px] w-[150px] md:min-h-[255px] md:h-[255px] h-[150px] overflow-hidden">
@@ -18,7 +18,7 @@ export function MultipleAdsDisplay() {
 					width={1000}
 					height={1000}
 					style={{ objectFit: "cover", width: "100%", height: "100%" }}
-					alt="ads"
+					alt="mtn"
 				/>
 			</div>
 			<div className="md:min-w-[285px] md:w-[285px] w-[150px] md:min-h-[255px] md:h-[255px] h-[150px] overflow-hidden">
@@ -27,7 +27,7 @@ export function MultipleAdsDisplay() {
 					width={1000}
 					height={1000}
 					style={{ objectFit: "cover", width: "100%", height: "100%" }}
-					alt="ads"
+					alt="firstbank"
 				/>
 			</div>
 		</div>

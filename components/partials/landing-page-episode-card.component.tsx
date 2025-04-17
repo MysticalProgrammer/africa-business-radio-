@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card"
 import Image from 'next/image';
 import { DefaultButton } from '@/components/shared/default-button.component';
+import { SharedModel } from "@/components/shared/shared-model.component";
 
 // interface LandingPageEpisodeCardProps {
 // 	children: React.ReactNode;
@@ -23,7 +24,7 @@ export function LandingPageEpisodeCard() {
 				width={1000}
 				height={1000}
 				style={{ objectFit: "cover", width: "100%", height: "100%" }}
-				alt="ads"
+				alt="license"
 				/>
 			</div>
 			</CardContent>
@@ -33,24 +34,26 @@ export function LandingPageEpisodeCard() {
 			</CardTitle>
 			</CardHeader>
 			<CardFooter className='flex gap-[11px] -mt-[3px] p-0'>
-			<DefaultButton buttonSize={30}>
-				<Image
-				src="/assets/images/icons/share.svg"
-				width={1000}
-				height={1000}
-				style={{ width: "16.5px", height: "16.5px" }}
-				alt="ads"
-				/>
-			</DefaultButton>
-			<DefaultButton buttonSize={30}>
-				<Image
-				src="/assets/images/icons/gift.svg"
-				width={1000}
-				height={1000}
-				style={{ width: "18px", height: "18px" }}
-				alt="ads"
-				/>
-			</DefaultButton>
+				<SharedModel>
+					<DefaultButton buttonSize={30}>
+						<Image
+						src="/assets/images/icons/share.svg"
+						width={1000}
+						height={1000}
+						style={{ width: "16.5px", height: "16.5px" }}
+						alt="share"
+						/>
+					</DefaultButton>
+				</SharedModel>
+				<DefaultButton buttonSize={30}>
+					<Image
+					src="/assets/images/icons/gift.svg"
+					width={1000}
+					height={1000}
+					style={{ width: "18px", height: "18px" }}
+					alt="gift"
+					/>
+				</DefaultButton>
 			</CardFooter>
 		</Card>
 	);

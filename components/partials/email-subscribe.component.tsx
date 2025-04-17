@@ -29,7 +29,7 @@ export function EmailSubscribe() {
 									width={1000}
 									height={1000}
 									style={{ objectFit: "cover", width: "100%", height: "100%" }}
-									alt="ads"
+									alt="alert"
 								/>
 							</button>
 						</div>
@@ -43,7 +43,7 @@ export function EmailSubscribe() {
 								width={1000}
 								height={1000}
 								style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: '100%' }}
-								alt="ads"
+								alt="podcasts"
 							/>
 							<div className='absolute top-0 right-10 size-[50px]'>
 								<Image
@@ -51,7 +51,7 @@ export function EmailSubscribe() {
 									width={1000}
 									height={1000}
 									style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: '100%' }}
-									alt="ads"
+									alt="image"
 								/>
 							</div>
 						</div>
@@ -63,7 +63,7 @@ export function EmailSubscribe() {
 								width={1000}
 								height={1000}
 								style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: '100%' }}
-								alt="ads"
+								alt="sip"
 							/>
 							<div className='absolute top-8 -right-[32px] size-[68.81px] scale-x-[-1]'>
 								<Image
@@ -71,7 +71,7 @@ export function EmailSubscribe() {
 									width={1000}
 									height={1000}
 									style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: '100%' }}
-									alt="ads"
+									alt="image"
 								/>
 							</div>
 						</div>

@@ -24,7 +24,7 @@ export function CardWithFloatingPlayButton({ image_url }: CardWithFloatingPlayBu
 						width={1000}
 						height={1000}
 						style={{ objectFit: "cover", width: "100%", height: "288px" }}
-						alt="ads"
+						alt="flyer"
 					/>
 				</CardContent>
 				<CardHeader className="p-0 pt-[13px]">

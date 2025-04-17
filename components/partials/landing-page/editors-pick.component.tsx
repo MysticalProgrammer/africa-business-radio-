@@ -14,13 +14,13 @@ export function EditorsPick() {
 				</div>
 			</div>
 			<div className='grid lg:grid-cols-2 grid-cols-1 xl:gap-[43px] lg:gap-[20px] gap-[30px]'>
-				<div className='md:h-[561px] relative rounded-[3px] '>
+				<div className='md:h-[561px] relative rounded-[3px]'>
 				<Image
 					src="/assets/images/license.jpeg"
 					width={1000}
 					height={1000}
 					style={{ objectFit: "cover", width: "100%", height: "100%" }}
-					alt="ads"
+					alt="license"
 				/>
 				<div className='flex text-white md:px-[25px] px-[5px] items-center absolute bottom-0 h-[86px] w-full bg-[#00000080] gap-[16px]'>
 					<PlayButton />

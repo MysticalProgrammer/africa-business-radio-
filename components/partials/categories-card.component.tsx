@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card"
 import { PlayButton } from '@components/shared/play-button.component';
 import { DefaultButton } from '@/components/shared/default-button.component';
+import { SharedModel } from "@components/shared/shared-model.component";
 
 import Image from 'next/image';
 
@@ -21,7 +22,7 @@ export function CategoriesCard({addClass = ''}) {
                 width={1000}
                 height={1000}
                 style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                alt="ads"
+                alt="license"
               />
             </div>
           </CardContent>
@@ -34,28 +35,30 @@ export function CategoriesCard({addClass = ''}) {
             </CardDescription>
             <CardDescription className='flex items-center text-[13px] font-[500] gap-[12px] mb-[10.84px]'>
               	<p>AUG 29, 2023</p>
-				<div className='size-[6px] rounded-full bg-red-400'></div>
+				<div className='size-[6px] rounded-full bg-[#828282]'></div>
 				<p className="ml-[1px]">45 MINS</p>
             </CardDescription>
           </CardHeader>
           <CardFooter className='p-0 gap-[10.69px]'>
             <PlayButton buttonSize={30} iconSize={16.956522274725444} />
-            <DefaultButton buttonSize={30}>
-              <Image
-                src="/assets/images/icons/share.svg"
-                width={1000}
-                height={1000}
-                style={{ width: "16.5px", height: "16.5px" }}
-                alt="ads"
-              />
-            </DefaultButton>
+			<SharedModel>
+				<button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 30, width: 30}}>
+					<Image
+						src="/assets/images/icons/share.svg"
+						width={1000}
+						height={1000}
+						style={{ width: "16.5px", height: "16.5px" }}
+						alt="share"
+					/>
+				</button>
+			</SharedModel>
             <DefaultButton buttonSize={30}>
               <Image
                 src="/assets/images/icons/gift.svg"
                 width={1000}
                 height={1000}
                 style={{ width: "16.5px", height: "16.5px" }}
-                alt="ads"
+                alt="license"
               />
             </DefaultButton>
           </CardFooter>

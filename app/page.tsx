@@ -29,7 +29,7 @@ export default function Home() {
               width={1000}
               height={1000}
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              alt="ads"
+              alt="fbn"
             />
           </div>
         </WhiteBoardAds>

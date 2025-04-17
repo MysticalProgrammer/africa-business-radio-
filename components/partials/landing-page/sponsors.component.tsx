@@ -16,7 +16,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="theworldbank"
 						/>
 					</div>
 					<div className='xl:w-[318px] w-[218px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -25,7 +25,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="nieman"
 						/>
 					</div>
 					<div className='xl:w-[176px] w-[100px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -34,7 +34,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="ned"
 						/>
 					</div>
 					<div className='xl:w-[222px] w-[150px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -43,7 +43,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="fledge"
 						/>
 					</div>
 				</div>
@@ -54,7 +54,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="pan"
 						/>
 					</div>
 					<div className='xl:w-[214px] w-[114px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -63,7 +63,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="business"
 						/>
 					</div>
 					<div className='xl:w-[178px] w-[100px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -72,7 +72,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="hub"
 						/>
 					</div>
 					<div className='xl:w-[179px] w-[100px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -81,7 +81,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="africa"
 						/>
 					</div>
 					<div className='xl:w-[158px] w-[100px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -90,7 +90,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="mic"
 						/>
 					</div>
 				</div>
@@ -110,7 +110,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="989"
 						/>
 					</div>
 					<div className='xl:w-[91px] w-[80px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -119,7 +119,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="ge"
 						/>
 					</div>
 					<div className='xl:w-[266px] w-[100px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -128,7 +128,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="prof"
 						/>
 					</div>
 					<div className='xl:w-[108px] w-[100px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -137,7 +137,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="absa"
 						/>
 					</div>
 					<div className='xl:w-[105px] w-[100px] grayscale hover:grayscale-50 transition-filter duration-1000'>
@@ -146,7 +146,7 @@ export function Sponsors() {
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
-							alt="ads"
+							alt="sapna"
 						/>
 					</div>
 				</div>

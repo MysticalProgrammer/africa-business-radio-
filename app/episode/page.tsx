@@ -6,32 +6,29 @@ import { PlayButton } from '@/components/shared/play-button.component';
 import { DefaultButton } from '@/components/shared/default-button.component';
 import { CardWithFloatingPlayButton } from '@/components/partials/card-with-floating-play-button.component';
 import { EmailSubscribe } from '@/components/partials/email-subscribe.component';
+import { SharedModel } from '@/components/shared/shared-model.component';
+import Link from 'next/link';
 
-// interface Props {
-// 	params: {
-// 		id: string;
-// 	};
-// }
 
 export default function Podcast() {
 
 	return (
 		<div className="pb-[79px]">
-			<div className="h-[497px] bg-linear-[133.14deg] from-[#2B3221] from-[9.11%] to-[#F2F2F200] to-[298.89%] mt-[144px]">
+			<div className="lg:h-[497px] bg-linear-[133.14deg] from-[#2B3221] from-[9.11%] to-[#F2F2F200] to-[298.89%] lg:mt-[144px] mt-[100px] lg:pb-0 pb-[20px]">
 				<div className="container mx-auto h-full">
 					<div className="py-[32px]">
-						<button type="button" className="flex items-center text-[13px] font-[600] text-white">
+						<Link href="/podcasts" className="flex items-center text-[13px] font-[600] text-white">
 							<Icon icon="icon-park-outline:left" className="size-[17px]" />
 							<p>Back to podcast</p>
-						</button>
+						</Link>
 					</div>
-					<div className="flex gap-[15px]">
+					<div className="flex md:flex-row flex-col gap-[15px] sm:px-0 px-4">
 						<div className="min-w-[157px] w-[157px] h-[129px] rounded-[3px] bg-yellow-200"></div>
 						<div className="text-white">
 							<div className="mb-[40px]">
 								<div className='flex items-center text-[13px] font-[700] gap-[12px]'>
 									<p>AUG 29, 2023</p>
-									<div className='size-[6px] rounded-full bg-red-400'></div>
+									<div className='size-[6px] rounded-full bg-[#828282]'></div>
 									<p className='ml-[1px]'>45 MINS</p>
 								</div>
 								<p className="text-[20px] font-[700] mt-[11px] mb-[7px]">Hope For the Widow</p>
@@ -60,7 +57,7 @@ export default function Podcast() {
 											width={1000}
 											height={1000}
 											style={{ width: "30px", height: "30px" }}
-											alt="ads"
+											alt="right"
 										/>
 									</button>
 									<PlayButton />
@@ -70,27 +67,29 @@ export default function Podcast() {
 										width={1000}
 										height={1000}
 										style={{ width: "30px", height: "30px" }}
-										alt="ads"
+										alt="left"
 										/>
 									</button>
 								</div>
 								<div className='flex gap-[21px]'>
-									<DefaultButton buttonSize={40}>
-										<Image
-										src="/assets/images/icons/share.svg"
-										width={1000}
-										height={1000}
-										style={{ width: "16.5px", height: "16.5px" }}
-										alt="ads"
-										/>
-									</DefaultButton>
+									<SharedModel>
+										<button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 40, width: 40}}>
+											<Image
+												src="/assets/images/icons/share.svg"
+												width={1000}
+												height={1000}
+												style={{ width: "16.5px", height: "16.5px" }}
+												alt="share"
+											/>
+										</button>
+									</SharedModel>
 									<DefaultButton buttonSize={40}>
 										<Image
 										src="/assets/images/icons/gift.svg"
 										width={1000}
 										height={1000}
 										style={{ width: "18px", height: "18px" }}
-										alt="ads"
+										alt="gift"
 										/>
 									</DefaultButton>
 								</div>
@@ -103,7 +102,7 @@ export default function Podcast() {
 				<div className="mt-[49px] mb-[16px] border-b pb-[20.01px]">
 					<p className="text-[14px] font-[800]">NEXT EPISODES IN QUEUE</p>
 				</div>
-				<div className="grid grid-cols-4 gap-[35px] mt-[28.99px]">
+				<div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-[35px] mt-[28.99px] sm:px-0 px-4">
 					<CardWithFloatingPlayButton image_url='flyer_1.png' />
 					<CardWithFloatingPlayButton image_url='flyer_2.jpeg'  />
 				</div>
