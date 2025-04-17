@@ -16,9 +16,9 @@ import { PlayButton } from '@components/shared/play-button.component';
 
 export function PodcastCard() {
 	return (
-		<Card className='border-0 rounded-none shadow-none p-0'>
-          <CardContent className='flex p-0'>
-            <div className='min-w-[157px] h-[129px]'>
+		<Card className='border-0 rounded-none shadow-none p-0 bg-transparent border-t'>
+          <CardContent className='flex gap-[15px] p-0 pt-[29px] pb-[36px]'>
+            <div className='min-w-[157px] h-[129px] rounded-[3px] overflow-hidden'>
               <Image
                 src="/assets/images/license.jpeg"
                 width={1000}
@@ -28,19 +28,20 @@ export function PodcastCard() {
               />
             </div>
             <div className='w-full'>
-              <CardHeader className='p-0 w-full'>
-                <CardDescription>
+              <CardHeader className='p-0 gap-0 w-full'>
+                <CardDescription className='flex items-center text-[13px] font-[700] gap-[12px] mb-[11px]'>
                   <p>AUG 29, 2023</p>
-                  <p>45 MINS</p>
+				  <div className='size-[6px] rounded-full bg-red-400'></div>
+                  <p className="ml-[1px]">45 MINS</p>
                 </CardDescription>
-                <CardTitle className='line-clamp-3'>
-                  Relationship Button - Starting Afresh as a Widow
+                <CardTitle className='line-clamp-3 text-[20px] font-[700] mb-[7px]'>
+                  The Funeral Experience – the Good, the Bad, and the Ugly
                 </CardTitle>
-                <CardDescription>
-                  <p className='line-clamp-3'>The challenges widows go through especially the less privileged ones can be daunting. From the experiences of ostracization and isolation to neglect, and rejection, widowhood can be a lonely journey.</p>
+                <CardDescription className="mb-[18px]">
+                  <p className='line-clamp-3 text-[15px] font-[500]'>The challenges widows go through especially the less privileged ones can be daunting. From the experiences of ostracization and isolation to neglect, and rejection, widowhood can be a lonely journey.</p>
                 </CardDescription>
               </CardHeader>
-              <CardFooter className='p-0'>
+              <CardFooter className='flex gap-[21px] p-0'>
                 <PlayButton buttonSize={40} iconSize={24} />
                 <DefaultButton buttonSize={40}>
                   <Image
