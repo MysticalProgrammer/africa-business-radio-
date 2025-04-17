@@ -20,7 +20,7 @@ const menu = [
 	},
 	{
 		name: 'ALL PODCAST',
-		href: '/',
+		href: '/podcasts',
 	},
 	{
 		name: 'ADVERTISE',

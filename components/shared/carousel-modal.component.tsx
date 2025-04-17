@@ -10,12 +10,13 @@ import {
 interface CarouselModalProps {
 	children: React.ReactNode,
 	withButtons?: boolean,
+	addClass?: string,
 }
 
-export function CarouselModal({children, withButtons = true} : CarouselModalProps) {
+export function CarouselModal({children, withButtons = true, addClass = ''} : CarouselModalProps) {
 	return (
 		<Carousel className='relative'>
-			<CarouselContent>
+			<CarouselContent className={addClass}>
 				{children}
 			</CarouselContent>
 

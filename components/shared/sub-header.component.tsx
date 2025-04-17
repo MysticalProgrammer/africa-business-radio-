@@ -22,7 +22,7 @@ const menu = [
 	},
 	{
 		name: 'All Podcasts',
-		href: '/',
+		href: '/podcasts',
 		icon: 'podcast.svg',
 	},
 ]
