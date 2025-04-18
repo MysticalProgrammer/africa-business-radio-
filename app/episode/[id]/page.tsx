@@ -12,30 +12,25 @@ import { convertToDate, getData, timeAgo } from '@/lib/utils';
 import { useQuery } from '@tanstack/react-query';
 import { use, useState } from 'react';
 import { Root } from '@/types';
-
-interface PodcastProps {
-	params: {
-		id: string;
-	};
-}
+import { PaginationList } from '@/components/shared/pagination-list.component';
+import { useSearchParams } from 'next/navigation';
 
 const maxChars = 500;
 
-export default function Podcast({params}: PodcastProps) {
-
+export default function Podcast({params}) {
 	const paramsBlack = use(params);
-	
+	const searchParams = useSearchParams();
+	const page = Number(searchParams.get("page")) || 1;
+
 	const {data, isLoading} = useQuery({
-		queryKey: ['episode'],
+		queryKey: ['episode', page],
 		queryFn: () => getData(`listeners/episodes/${paramsBlack.id}}`),
 	})
 
 	const episodes = useQuery({
-		queryKey: ['episodes'],
+		queryKey: ['episodes', page],
 		queryFn: () => getData(`listeners/podcasts/${data.data.podcast.id}/episodes?page=1&per_page=15`),
 	})
-
-	console.log(data);
 	
 	const [isExpanded, setIsExpanded] = useState<boolean>(false);
 	const toggleReadMore = () => setIsExpanded(prev => !prev);
@@ -163,6 +158,9 @@ export default function Podcast({params}: PodcastProps) {
 							<CardWithFloatingPlayButton data={item} image_url={item.picture_url} key={index} />
 						))
 					}
+				</div>
+				<div className='container mx-auto pt-[80px] flex w-full justify-center'>
+					<PaginationList data={episodes.data.data} />
 				</div>
 			</div>
 			<div className='mt-[127px]'>

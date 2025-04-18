@@ -10,9 +10,11 @@ import { use, useState } from 'react';
 import { Root } from '@/types';
 import { getData } from "@/lib/utils";
 import { Icon } from "@iconify/react";
+import { PaginationList } from "@/components/shared/pagination-list.component";
+import { useSearchParams } from "next/navigation";
 
 interface PodcastProps {
-	params: {
+	params?: {
 		id: string;
 	};
 }
@@ -21,6 +23,8 @@ const maxChars = 500;
 
 export default function Podcast({params}: PodcastProps) {
 	const paramsBlack = use(params);
+	const searchParams = useSearchParams();
+	const page = Number(searchParams.get("page")) || 1;
 	
 	const {data, isLoading} = useQuery({
 		queryKey: ['podcast'],
@@ -28,8 +32,8 @@ export default function Podcast({params}: PodcastProps) {
 	})
 
 	const episodes = useQuery({
-		queryKey: ['episode'],
-		queryFn: () => getData(`listeners/podcasts/${paramsBlack.id}/episodes?page=1&per_page=5`),
+		queryKey: ['episode', page],
+		queryFn: () => getData(`listeners/podcasts/${paramsBlack.id}/episodes${window.location.search}&per_page=5`),
 	})
 	
 	const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -155,7 +159,7 @@ export default function Podcast({params}: PodcastProps) {
 							}
 						</div>
 						<div className='container mx-auto md:pl-[57px] md:block flex justify-center'>
-							{/* <PaginationList /> */}
+							<PaginationList data={episodes.data.data} />
 						</div>
 					</div>
 					<div className="lg:block hidden">

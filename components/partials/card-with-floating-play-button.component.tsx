@@ -11,6 +11,7 @@ import {
 import { PlayButton } from '@components/shared/play-button.component';
 import { Root } from '@/types';
 import Link from 'next/link';
+import { convertToDate, timeAgo } from '@/lib/utils';
 
 interface CardWithFloatingPlayButtonProps {
 	image_url: string,
@@ -46,8 +47,8 @@ export function CardWithFloatingPlayButton({ image_url, data }: CardWithFloating
 				</CardHeader>
 				<CardFooter className=" absolute bottom-[26px] p-0 mt-[19px] text-[#282828]">
 					<div className='flex items-center text-[13px] h-[12px] pl-[45px] overflow-hidden'>
-						<p className='border-r-[1px] border-[#979797] pr-[10px]'>Sept 7, 2023</p>
-						<p className='pl-[10px]'>35 mins</p>
+						<p className='border-r-[1px] border-[#979797] pr-[10px]'>{convertToDate(data.created_at)}</p>
+						<p className='pl-[10px]'>{timeAgo(data.created_at)}</p>
 					</div>
 				</CardFooter>
 			</Card>

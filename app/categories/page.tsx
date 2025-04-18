@@ -23,15 +23,19 @@ import { PaginationList } from '@/components/shared/pagination-list.component';
 import { useQuery } from '@tanstack/react-query';
 import { Root } from '@/types'
 import { getData } from '@/lib/utils';
+import { useSearchParams } from 'next/navigation';
 
 export default function Categories() {
+	const searchParams = useSearchParams();
+	const page = Number(searchParams.get("page")) || 1;
+
 	const categories = useQuery({
-		queryKey: ['podcasts'],
+		queryKey: ['podcasts', page],
 		queryFn: () => getData(`listeners/top-categories'}`),
 	})
 
 	const podcasts = useQuery({
-		queryKey: ['podcasts'],
+		queryKey: ['podcasts', page],
 		queryFn: () => getData(`listeners/top-podcasts${window.location.search ? window.location.search+'&per_page=15' : '?page=1&per_page=15'}`),
 	})
 

@@ -7,6 +7,7 @@ import {
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -43,7 +44,7 @@ export function Trending({data}:{data: Root[]}) {
 											/>
 										</CardContent>
 										<CardHeader className='p-0 px-6 py-4 absolute rounded-[3px] bottom-0 w-full text-white'>
-											{/* <CardDescription className='text-[13px] font-[700] text-white'>8 Episodes</CardDescription> */}
+											<CardDescription className='text-[13px] font-[700] text-white'>8 Episodes</CardDescription>
 											<CardTitle className='text-[20px] font-[700] line-clamp-2'>{item.title}</CardTitle>
 										</CardHeader>
 										</Card>
