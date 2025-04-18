@@ -18,6 +18,7 @@ import { Sponsors } from '@/components/partials/landing-page/sponsors.component'
 import { useQuery } from '@tanstack/react-query';
 import { getData } from '@/lib/utils';
 import { Icon } from '@iconify/react';
+import { Root } from '@/types';
 
 export default function Home() {
   const editorspick = useQuery({
@@ -54,14 +55,8 @@ export default function Home() {
     }, {});
   };
 
-  interface Root {
-  category_name: string;
-  id: number;
-  title: string;
-}
 
-
-// const entries = Object.entries(turnArrayToObject(categories.data?.data?.data || []));
+const entries: [title:string, items:Root[]][] = Object.entries(turnArrayToObject(categories.data?.data?.data || []));
 
 
   if(editorspick.isLoading || trending.isLoading || latestEpisode.isLoading || categories.isLoading) return (
@@ -98,20 +93,18 @@ export default function Home() {
         </TitleTag>
       </div>
       {
-        // @ts-expect-error: key may not be seen
-        categories && categories.data?.data?.data && <Episodes title={Object.entries(turnArrayToObject(categories.data?.data?.data))[0][0]} data={Object.entries(turnArrayToObject(categories.data?.data?.data))[1]} />
+        categories && categories.data?.data?.data && <Episodes title={Object.entries(turnArrayToObject(categories.data?.data?.data))[0][0]} data={Object.entries(turnArrayToObject(categories.data?.data?.data))[1][1]} />
       }
       <AdsBoard>
         <MultipleAdsDisplay />
       </AdsBoard>
       <div className='space-y-[85px]'>
-        {/* {
-          // @ts-expect-error: we are casting API data to known shape
+        {
           categories &&
             entries.map(([title, items]) => (
               <Episodes title={title} key={title} data={items} />
             ))
-        } */}
+        }
       </div>
       <div className='mt-[150px] mb-[146px]'>
         <EmailSubscribe />
