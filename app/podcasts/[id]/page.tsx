@@ -22,18 +22,18 @@ type PodcastProps = Promise<{
 const maxChars = 500;
 
 export default function Podcast({params}: {params:PodcastProps}) {
-	const paramsBlack = use(params);
+	const getParams = use(params);
 	const searchParams = useSearchParams();
 	const page = Number(searchParams.get("page")) || 1;
 	
 	const {data, isLoading} = useQuery({
 		queryKey: ['podcast'],
-		queryFn: () => getData(`listeners/podcasts/${paramsBlack.id}}`),
+		queryFn: () => getData(`listeners/podcasts/${getParams.id}}`),
 	})
 
 	const episodes = useQuery({
 		queryKey: ['episode', page],
-		queryFn: () => getData(`listeners/podcasts/${paramsBlack.id}/episodes${window.location.search}&per_page=5`),
+		queryFn: () => getData(`listeners/podcasts/${getParams.id}/episodes${window.location.search?window.location.search+'&' : '?'}per_page=5`),
 	})
 	
 	const [isExpanded, setIsExpanded] = useState<boolean>(false);

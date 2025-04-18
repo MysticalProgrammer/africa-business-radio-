@@ -18,19 +18,19 @@ import { useSearchParams } from 'next/navigation';
 const maxChars = 500;
 
 type PodcastProps = Promise<{
-	params?: {
+	params: {
 		id: string;
 	};
 }>
 
 export default function Podcast({params}: {params:PodcastProps}) {
-	const paramsBlack = use(params);
+	const getParams = use(params);
 	const searchParams = useSearchParams();
 	const page = Number(searchParams.get("page")) || 1;
 
 	const {data, isLoading} = useQuery({
 		queryKey: ['episode', page],
-		queryFn: () => getData(`listeners/episodes/${paramsBlack.id}}`),
+		queryFn: () => getData(`listeners/episodes/${getParams.id}}`),
 	})
 
 	const episodes = useQuery({
