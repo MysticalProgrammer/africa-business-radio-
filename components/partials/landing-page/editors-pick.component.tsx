@@ -24,7 +24,7 @@ export function EditorsPick({data}: {data: Root}) {
 			</div>
 			<div className='grid lg:grid-cols-2 grid-cols-1 xl:gap-[43px] lg:gap-[20px] gap-[30px]'>
 				<div className='md:h-[561px] relative rounded-[3px]'>
-				<Link href={Object.keys(first).length ? `/episode/${first.id}` : '/'}>
+				<Link href={first && first.length ? `/episode/${first.id}` : '/'}>
 					<Image
 						src={first.picture_url}
 						width={1000}

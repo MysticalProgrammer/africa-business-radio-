@@ -69,18 +69,18 @@ export default function Podcast({params}: {params:PodcastProps}) {
 								alt="license"
 							/>
 						</div>
-						<div className="text-white">
+						<div className="text-white w-full">
 							<div className="mb-[40px]">
 								<div className='flex items-center text-[13px] font-[700] gap-[12px]'>
 									<p>{convertToDate(data.data.created_at)}</p>
 									<div className='size-[6px] rounded-full bg-[#828282]'></div>
 									<p className='ml-[1px]'>{timeAgo(data.data.created_at)}</p>
 								</div>
-								<p className="text-[20px] font-[700] mt-[11px] mb-[7px]">
+								<p className="text-[20px] font-[700] mt-[11px] mb-[7px] w-full">
 									{data.data.title}
 								</p>
-								<div>
-									<p className="text-[16px] font-[500] leading-[26px]">
+								<div className='w-full'>
+									<p className="text-[16px] font-[500] leading-[26px] w-full">
 										{shouldTruncate && !isExpanded
 											? data.data.description.slice(0, maxChars) + '...' : data.data.description}
 										{shouldTruncate && (
