@@ -104,7 +104,7 @@ export function Header() {
 						<SheetTrigger className="grid place-content-center border-1 size-[40px] rounded-lg">
 							<Icon icon="proicons:menu" className="size-[24px]" />
 						</SheetTrigger>
-						<SheetContent side="left">
+						<SheetContent side="left" className="z-[999999]">
 							<SheetHeader>
 								<SheetTitle className="h-full w-[100px] py-2">
 									<Image
