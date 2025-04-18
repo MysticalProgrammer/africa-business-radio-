@@ -64,6 +64,9 @@ export default function Home() {
   // ... other fields
 }
 
+// @ts-ignore
+const entries = Object.entries(turnArrayToObject(categories.data?.data?.data || []));
+
 
   if(editorspick.isLoading || trending.isLoading || latestEpisode.isLoading || categories.isLoading) return (
     <div className='fixed grid place-content-center z-[999999] bg-black text-white w-screen h-screen'>
@@ -107,9 +110,10 @@ export default function Home() {
       </AdsBoard>
       <div className='space-y-[85px]'>
         {
-          categories && categories.data?.data?.data && Object.entries(turnArrayToObject(categories.data?.data?.data)).map(entry => (
-            <Episodes title={entry[0]} key={entry[0]} data={entry} />
-          ))
+          categories &&
+            entries.map(([title, items]) => (
+              <Episodes title={title} key={title} data={items} />
+            ))
         }
       </div>
       <div className='mt-[150px] mb-[146px]'>

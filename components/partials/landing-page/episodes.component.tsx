@@ -13,8 +13,6 @@ interface MultipleAdsDisplayProps {
 }
 
 export function Episodes({title, data}: MultipleAdsDisplayProps) {
-	console.log(data);
-
 	return (
 
 		<div className='container mx-auto space-y-[35px] sm:px-0 px-4'>
