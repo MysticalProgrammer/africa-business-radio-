@@ -1,17 +1,49 @@
+'use client'
+
 import Link from "next/link";
 import Image from 'next/image';
 import { PodcastCard } from "@/components/partials/podcast-card.component";
 import { AdsBoard } from "@components/partials/ads-board.component";
-import { SharedModel } from '../../components/shared/shared-model.component';
+import { SharedModel } from '@components/shared/shared-model.component';
 import { PaginationList } from "@/components/shared/pagination-list.component";
+import { useQuery } from '@tanstack/react-query';
+import { use, useState } from 'react';
+import { Root } from '@/types';
+import { getData } from "@/lib/utils";
+import { Icon } from "@iconify/react";
 
-// interface Props {
-// 	params: {
-// 		id: string;
-// 	};
-// }
+interface PodcastProps {
+	params: {
+		id: string;
+	};
+}
 
-export default function Podcast() {
+const maxChars = 500;
+
+export default function Podcast({params}: PodcastProps) {
+	const paramsBlack = use(params);
+	
+	const {data, isLoading} = useQuery({
+		queryKey: ['podcast'],
+		queryFn: () => getData(`listeners/podcasts/${paramsBlack.id}}`),
+	})
+
+	const episodes = useQuery({
+		queryKey: ['episode'],
+		queryFn: () => getData(`listeners/podcasts/${paramsBlack.id}/episodes?page=1&per_page=5`),
+	})
+	
+	const [isExpanded, setIsExpanded] = useState<boolean>(false);
+	const toggleReadMore = () => setIsExpanded(prev => !prev);
+
+	if(episodes.isLoading || isLoading) return (
+		<div className='fixed grid place-content-center z-[999999] bg-black text-white w-screen h-screen'>
+		<Icon icon="svg-spinners:pulse-multiple" width="200" height="200" />
+		<p className='text-center'>Loading...</p>
+		</div>
+	)
+
+	const shouldTruncate = data?.data?.description.length > maxChars;
 
 	return (
 		<div className="pb-[174px]">
@@ -30,9 +62,9 @@ export default function Podcast() {
 							</button>
 						</SharedModel>
 					</div>
-					<div className="md:w-[390px] h-[350px] rounded-[3px] bg-yellow-200">
+					<div className="md:w-[390px] h-[350px] rounded-[3px]">
 						<Image
-							src="/assets/images/icons/white-share.svg"
+							src={data.data.picture_url}
 							width={1000}
 							height={1000}
 							style={{ objectFit: "cover", width: "100%", height: "100%" }}
@@ -57,8 +89,12 @@ export default function Podcast() {
 									</SharedModel>
 								</div>
 							</div>
-							<p className="text-[28px] font-[800] mb-[4px]">Hope For the Widow</p>
-							<p className="text-[16px] font-[500] leading-[26px]">The show aims to shed light on the challenges faced by less privileged widows, providing support and a platform to promote a better life. Join us in making a difference. #EmpoweringWidows #SupportingWidows.</p>
+							<p className="text-[28px] font-[800] mb-[4px]">{data.data.title}</p>
+							<p className="text-[16px] font-[500] leading-[26px]">{shouldTruncate && !isExpanded
+								? data.data.description.slice(0, maxChars) + '...' : data.data.description}
+							{shouldTruncate && (
+								<button type="button" onClick={toggleReadMore} className="text-[#BCFFB6] text-[15px] font-[700] uppercase">{isExpanded ? 'Read Less' : 'Read More'}</button>
+							)}</p>
 						</div>
 						<div className="space-y-[13px]">
 							<p className="text-[14px] font-[600] text-[#BFBFBF]">Available on</p>
@@ -111,18 +147,16 @@ export default function Podcast() {
 				<div className="flex flex-1 w-full gap-[163px]">
 					<div className="pb-[100px] w-full">
 						<div className="w-full pb-[42px]">
-							<div className="">
-								<PodcastCard />
-							</div>
-							<div className="">
-								<PodcastCard />
-							</div>
-							<div className="max-[846px] border-b">
-								<PodcastCard />
-							</div>
+							{
+								episodes?.data?.data?.data.map((item:Root, index:number) => (
+									<div className={episodes?.data?.data?.data.length == 1+index ? 'border-b' : ''} key={index}>
+										<PodcastCard data={item} />
+									</div>
+								))
+							}
 						</div>
 						<div className='container mx-auto md:pl-[57px] md:block flex justify-center'>
-							<PaginationList />
+							{/* <PaginationList /> */}
 						</div>
 					</div>
 					<div className="lg:block hidden">

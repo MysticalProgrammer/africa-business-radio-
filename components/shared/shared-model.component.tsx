@@ -16,9 +16,10 @@ import { Label } from "@/components/ui/label"
 
 interface SharedModelProps {
 	children: React.ReactNode;
+	link: string,
 }
 
-export function SharedModel({ children }: SharedModelProps) {
+export function SharedModel({ children, link }: SharedModelProps) {
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
@@ -38,7 +39,7 @@ export function SharedModel({ children }: SharedModelProps) {
 					</Label>
 					<Input
 					id="link"
-					defaultValue="https://ui.shadcn.com/docs/installation"
+					defaultValue={link}
 					readOnly
 					/>
 				</div>

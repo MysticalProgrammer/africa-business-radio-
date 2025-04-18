@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image';
 import { Icon } from "@iconify/react";
 import { PlayButton } from '@/components/shared/play-button.component';
@@ -6,9 +8,44 @@ import { CardWithFloatingPlayButton } from '@/components/partials/card-with-floa
 import { EmailSubscribe } from '@/components/partials/email-subscribe.component';
 import { SharedModel } from '@/components/shared/shared-model.component';
 import Link from 'next/link';
+import { convertToDate, getData, timeAgo } from '@/lib/utils';
+import { useQuery } from '@tanstack/react-query';
+import { use, useState } from 'react';
+import { Root } from '@/types';
 
+interface PodcastProps {
+	params: {
+		id: string;
+	};
+}
 
-export default function Podcast() {
+const maxChars = 500;
+
+export default function Podcast({params}: PodcastProps) {
+
+	const paramsBlack = use(params);
+	
+	const {data, isLoading} = useQuery({
+		queryKey: ['episode'],
+		queryFn: () => getData(`listeners/episodes/${paramsBlack.id}}`),
+	})
+
+	const episodes = useQuery({
+		queryKey: ['episodes'],
+		queryFn: () => getData(`listeners/podcasts/${paramsBlack.id}/episodes?page=1&per_page=15`),
+	})
+	
+	const [isExpanded, setIsExpanded] = useState<boolean>(false);
+	const toggleReadMore = () => setIsExpanded(prev => !prev);
+
+	if(episodes.isLoading || isLoading) return (
+		<div className='fixed grid place-content-center z-[999999] bg-black text-white w-screen h-screen'>
+		<Icon icon="svg-spinners:pulse-multiple" width="200" height="200" />
+		<p className='text-center'>Loading...</p>
+		</div>
+	)
+
+	const shouldTruncate = data?.data?.description.length > maxChars;
 
 	return (
 		<div className="pb-[79px]">
@@ -21,16 +58,34 @@ export default function Podcast() {
 						</Link>
 					</div>
 					<div className="flex md:flex-row flex-col gap-[15px] sm:px-0 px-4">
-						<div className="min-w-[157px] w-[157px] h-[129px] rounded-[3px] bg-yellow-200"></div>
+						<div className="min-w-[157px] w-[157px] h-[129px] rounded-[3px] bg-yellow-200">
+							<Image
+								src={data.data.picture_url}
+								width={1000}
+								height={1000}
+								style={{ objectFit: "cover", width: "100%", height: "100%" }}
+								alt="license"
+							/>
+						</div>
 						<div className="text-white">
 							<div className="mb-[40px]">
 								<div className='flex items-center text-[13px] font-[700] gap-[12px]'>
-									<p>AUG 29, 2023</p>
+									<p>{convertToDate(data.data.created_at)}</p>
 									<div className='size-[6px] rounded-full bg-[#828282]'></div>
-									<p className='ml-[1px]'>45 MINS</p>
+									<p className='ml-[1px]'>{timeAgo(data.data.created_at)}</p>
 								</div>
-								<p className="text-[20px] font-[700] mt-[11px] mb-[7px]">Hope For the Widow</p>
-								<p className="text-[16px] font-[500] leading-[26px]">The struggles of a widow begin immediately when her husband dies; she is immediately made to go through various traditional rites, disregarding her pain and process of grieving.Most people in Africa, argue that those rituals are intended to protect widows and not to harm them. This doesn’t appear to be the case as some of these practices and beliefs tend to dehumanise the very essence of their womanhood.In this episode, we will talk about these rites and possible solutions to the bad sides and even how to manage the ugly sides.The guest on this episode is Ms Grace Udodong. <button type="button" className="text-[#BCFFB6] text-[15px] font-[700] uppercase">Read More</button></p>
+								<p className="text-[20px] font-[700] mt-[11px] mb-[7px]">
+									{data.title}
+								</p>
+								<div>
+									<p className="text-[16px] font-[500] leading-[26px]">
+										{shouldTruncate && !isExpanded
+											? data.data.description.slice(0, maxChars) + '...' : data.data.description}
+										{shouldTruncate && (
+											<button type="button" onClick={toggleReadMore} className="text-[#BCFFB6] text-[15px] font-[700] uppercase">{isExpanded ? 'Read Less' : 'Read More'}</button>
+										)}
+									</p>
+								</div>
 							</div>
 							<div className="flex space-y-[13px]">
 								<div className="flex gap-[25px] w-full">
@@ -70,7 +125,7 @@ export default function Podcast() {
 									</button>
 								</div>
 								<div className='flex gap-[21px]'>
-									<SharedModel>
+									<SharedModel link="">
 										<button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 40, width: 40}}>
 											<Image
 												src="/assets/images/icons/share.svg"
@@ -101,8 +156,11 @@ export default function Podcast() {
 					<p className="text-[14px] font-[800]">NEXT EPISODES IN QUEUE</p>
 				</div>
 				<div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-[35px] mt-[28.99px] sm:px-0 px-4">
-					<CardWithFloatingPlayButton image_url='flyer_1.png' />
-					<CardWithFloatingPlayButton image_url='flyer_2.jpeg'  />
+					{
+						episodes?.data?.data?.data.map((item:Root, index:number) => (
+							<CardWithFloatingPlayButton data={item} image_url={item.picture_url} key={index} />
+						))
+					}
 				</div>
 			</div>
 			<div className='mt-[127px]'>
