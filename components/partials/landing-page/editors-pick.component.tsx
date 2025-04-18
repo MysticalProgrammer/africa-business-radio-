@@ -6,8 +6,11 @@ import { Root } from '@/types';
 import Link from 'next/link';
 
 export function EditorsPick({data}: {data: Root}) {
+	// @ts-expect-error: key may not be seen
 	const first = data[Math.floor(Math.random() * data.length) + 1];
+	// @ts-expect-error: key may not be seen
 	const second = data[Math.floor(Math.random() * data.length) + 1];
+	// @ts-expect-error: key may not be seen
 	const third = data[Math.floor(Math.random() * data.length) + 1];
 
 	return (
