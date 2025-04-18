@@ -42,8 +42,7 @@ export default function Home() {
 
   const turnArrayToObject = (category:Root[]) => {
     return category.reduce((acc: Record<string, Root[]>, item) => {
-       // @ts-expect-error: key may be seen null
-      const key = item.category_name ?? 'unnamed category';
+      const key = item?.category_name ?? 'unnamed category';
       
       if (!acc[`${key}`]) {
         acc[key] = [];
@@ -56,13 +55,13 @@ export default function Home() {
   };
 
   interface Root {
+  category_name: string;
   id: number;
   title: string;
-  // ... other fields
 }
 
 
-const entries = Object.entries(turnArrayToObject(categories.data?.data?.data || []));
+// const entries = Object.entries(turnArrayToObject(categories.data?.data?.data || []));
 
 
   if(editorspick.isLoading || trending.isLoading || latestEpisode.isLoading || categories.isLoading) return (
@@ -106,12 +105,13 @@ const entries = Object.entries(turnArrayToObject(categories.data?.data?.data || 
         <MultipleAdsDisplay />
       </AdsBoard>
       <div className='space-y-[85px]'>
-        {
+        {/* {
+          // @ts-expect-error: we are casting API data to known shape
           categories &&
             entries.map(([title, items]) => (
               <Episodes title={title} key={title} data={items} />
             ))
-        }
+        } */}
       </div>
       <div className='mt-[150px] mb-[146px]'>
         <EmailSubscribe />
