@@ -13,15 +13,15 @@ import { Icon } from "@iconify/react";
 import { PaginationList } from "@/components/shared/pagination-list.component";
 import { useSearchParams } from "next/navigation";
 
-interface PodcastProps {
+type PodcastProps = Promise<{
 	params?: {
 		id: string;
 	};
-}
+}>
 
 const maxChars = 500;
 
-export default function Podcast({params}: PodcastProps) {
+export default function Podcast({params}: {params:PodcastProps}) {
 	const paramsBlack = use(params);
 	const searchParams = useSearchParams();
 	const page = Number(searchParams.get("page")) || 1;

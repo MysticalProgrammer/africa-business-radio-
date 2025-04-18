@@ -17,7 +17,13 @@ import { useSearchParams } from 'next/navigation';
 
 const maxChars = 500;
 
-export default function Podcast({params}) {
+type PodcastProps = Promise<{
+	params?: {
+		id: string;
+	};
+}>
+
+export default function Podcast({params}: {params:PodcastProps}) {
 	const paramsBlack = use(params);
 	const searchParams = useSearchParams();
 	const page = Number(searchParams.get("page")) || 1;

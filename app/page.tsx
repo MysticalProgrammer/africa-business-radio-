@@ -59,8 +59,6 @@ export default function Home() {
     </div>
   )
 
-   console.log(turnArrayToObject(categories.data?.data?.data));
-
   return (
     <div className="lg:pt-[144px] pt-[100px]">
       <AdsBoard>
