@@ -43,11 +43,15 @@ export default function Home() {
 
   const turnArrayToObject = (array:Root[]) => {
     return array.reduce((acc, item) => {
-      if (!acc[item.category_name]) {
-        acc[item.category_name] = [];
+      if(item.category_name){
+        if (!acc[`${item.category_name}`]) {
+          acc[item.category_name] = [];
+        }
+  
+        acc[item.category_name]?.push(item);
+      }else{
+        acc['un named category']?.push(item);
       }
-
-      acc[item.category_name]?.push(item);
       return acc;
     }, {});
   };
