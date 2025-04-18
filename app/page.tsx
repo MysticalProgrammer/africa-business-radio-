@@ -41,17 +41,14 @@ export default function Home() {
   })
 
   const turnArrayToObject = (category:Root[]) => {
-    return category.reduce((acc, item) => {
+    return category.reduce((acc: Record<string, Root[]>, item) => {
        // @ts-expect-error: key may be seen null
       const key = item.category_name ?? 'unnamed category';
       
-      // @ts-expect-error: key may be seen null
       if (!acc[`${key}`]) {
-        // @ts-expect-error: key may be seen null
         acc[key] = [];
       }
 
-      // @ts-expect-error: key may be seen null
       acc[key]?.push(item);
       
       return acc;
@@ -64,7 +61,7 @@ export default function Home() {
   // ... other fields
 }
 
-// @ts-ignore
+
 const entries = Object.entries(turnArrayToObject(categories.data?.data?.data || []));
 
 
