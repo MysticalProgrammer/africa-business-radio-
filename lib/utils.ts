@@ -33,6 +33,7 @@ export const convertToDate = (dateTime: string | number | Date) => {
 		month: string;
 		year: string;
 	} = { day: '2-digit', month: 'short', year: 'numeric' };
+  // @ts-expect-error: key may not be seen
 	return date.toLocaleDateString('en-US', options);
 };
 
