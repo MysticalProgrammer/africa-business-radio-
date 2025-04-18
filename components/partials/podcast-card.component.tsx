@@ -57,7 +57,7 @@ export function PodcastCard({data}:{data: Root}) {
                     alt="file"
                   />
                 </DefaultButton>
-                <SharedModel link="">
+                <SharedModel link={window.location.origin+'/episode/'+data.id}>
                   <button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 40, width: 40}}>
                     <Image
                       src="/assets/images/icons/share.svg"

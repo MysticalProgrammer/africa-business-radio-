@@ -50,7 +50,7 @@ export function CategoriesCard({addClass = '', data}: {addClass: string, data:Ro
             <Link href={`/podcasts/${data.id}`}>
               <PlayButton buttonSize={30} iconSize={16.956522274725444} />
             </Link>
-            <SharedModel link={`/podcasts/${data.id}`}>
+            <SharedModel link={window.location.origin+'/podcasts/'+data.id}>
               <button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 30, width: 30}}>
                 <Image
                   src="/assets/images/icons/share.svg"

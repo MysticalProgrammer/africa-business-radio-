@@ -50,7 +50,7 @@ export default function Podcast({params}: {params:PodcastProps}) {
 				<div className="md:h-[435px] bg-linear-[133.14deg] from-[#2B3221] from-[9.11%] to-[#F2F2F200] to-[298.89%] lg:mt-[144px] mt-[100px] md:py-0 py-[20px] sm:px-0 px-4">
 					<div className="container flex md:flex-row flex-col h-full items-center gap-[25px] mx-auto relative">
 						<div className="md:block hidden">
-							<SharedModel link="">
+							<SharedModel link={window.location.origin+'/podcasts/'+data.data.id}>
 								<button type="button" className="absolute right-0 top-[40px] cursor-pointer">
 									<Image
 										src="/assets/images/icons/white-share.svg"
@@ -76,7 +76,7 @@ export default function Podcast({params}: {params:PodcastProps}) {
 								<div className="flex items-center mb-[20px]">
 									<p className="text-[14px] text-[#BFBFBF] font-[800]">PODCAST</p>
 									<div className="md:hidden">
-										<SharedModel link="">
+										<SharedModel link={window.location.origin+'/podcasts/'+data.data.id}>
 											<button type="button" className="ml-2 size-[14px] cursor-pointer">
 												<Image
 													src="/assets/images/icons/white-share.svg"

@@ -36,7 +36,7 @@ export function LandingPageEpisodeCard({data}: {data:Root}) {
 			</CardTitle>
 			</CardHeader>
 			<CardFooter className='flex gap-[11px] -mt-[3px] p-0'>
-				<SharedModel link="">
+				<SharedModel link={window.location.origin+'/podcasts/'+data.id}>
 					<button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 30, width: 30}}>
 						<Image
 							src="/assets/images/icons/share.svg"

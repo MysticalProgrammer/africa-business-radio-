@@ -57,7 +57,7 @@ export function NewEpisodes({data}:{data: Root[]}) {
 							<CardFooter className='flex gap-[23px] p-0'>
 								<p className='text-[13px] font-[500]'>More Episodes</p>
 								<div className='flex gap-[11px]'>
-									<SharedModel link="">
+									<SharedModel link={window.location.origin+'/episode/'+item.id}>
 										<button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 30, width: 30}}>
 											<Image
 											src="/assets/images/icons/share.svg"

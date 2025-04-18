@@ -127,7 +127,7 @@ export default function Podcast({params}: {params:PodcastProps}) {
 									</button>
 								</div>
 								<div className='flex gap-[21px]'>
-									<SharedModel link="">
+									<SharedModel link={window.location.origin+'/episode/'+data.data.id}>
 										<button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 40, width: 40}}>
 											<Image
 												src="/assets/images/icons/share.svg"
