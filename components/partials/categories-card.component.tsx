@@ -19,7 +19,7 @@ export function CategoriesCard({addClass = '', data}: {addClass: string, data:Ro
 	return (
 		<Card className={`py-0 border-0 shadow-transparent `+addClass}>
           <CardContent className='p-0'>
-            <Link href={`/episode/${data.id}`}>
+            <Link href={`/podcasts/${data.id}`}>
               <div className='h-[187px]'>
                 <Image
                   src={data.picture_url}
@@ -33,10 +33,10 @@ export function CategoriesCard({addClass = '', data}: {addClass: string, data:Ro
           </CardContent>
           <CardHeader className='p-0'>
             <CardTitle>
-              <Link href={`/episode/${data.id}`} className='text-[18px] line-clamp-3'>{data.title}</Link>
+              <Link href={`/podcasts/${data.id}`} className='text-[18px] line-clamp-3'>{data.title}</Link>
             </CardTitle>
             <CardDescription>
-              <Link href={`/episode/${data.id}`}>
+              <Link href={`/podcasts/${data.id}`}>
                 <p className="text-[15px] leading-[22px] line-clamp-3" dangerouslySetInnerHTML={{ __html: data.description }}></p>
               </Link>
             </CardDescription>
@@ -47,10 +47,10 @@ export function CategoriesCard({addClass = '', data}: {addClass: string, data:Ro
             </CardDescription>
           </CardHeader>
           <CardFooter className='p-0 gap-[10.69px]'>
-            <Link href={`/episode/${data.id}`}>
+            <Link href={`/podcasts/${data.id}`}>
               <PlayButton buttonSize={30} iconSize={16.956522274725444} />
             </Link>
-            <SharedModel link={`/episode/${data.id}`}>
+            <SharedModel link={`/podcasts/${data.id}`}>
               <button type='button' className={`flex items-center justify-center aspect-square rounded-full bg-[#E1E1E1] cursor-pointer`} style={{height: 30, width: 30}}>
                 <Image
                   src="/assets/images/icons/share.svg"

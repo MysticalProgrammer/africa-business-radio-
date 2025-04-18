@@ -22,7 +22,7 @@ export function Episodes({title, data}: MultipleAdsDisplayProps) {
 				<div className='flex items-center h-[13px] mt-[6px] mb-[18px] border-l-[3px] border-[#CC0001]'>
 				<p className='text-[16px] font-[600] text-[#5A5A5A] pl-[5px]'>{title}</p>
 				</div>
-				<Link href="/podcasts" className='flex items-center justify-center gap-[10px] text-[#9747FF] border border-[#9747FF] text-[15px] px-[18px] py-[7px] rounded-[22px]'>View All <Icon icon="uiw:right" className='size-[15px]' /></Link>
+				<Link href="/categories" className='flex items-center justify-center gap-[10px] text-[#9747FF] border border-[#9747FF] text-[15px] px-[18px] py-[7px] rounded-[22px]'>View All <Icon icon="uiw:right" className='size-[15px]' /></Link>
 			</div>
 			<CarouselModal withButtons={false}>
 				{

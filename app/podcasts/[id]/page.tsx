@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { PodcastCard } from "@/components/partials/podcast-card.component";
 import { AdsBoard } from "@components/partials/ads-board.component";
 import { SharedModel } from '@components/shared/shared-model.component';
-import { PaginationList } from "@/components/shared/pagination-list.component";
 import { useQuery } from '@tanstack/react-query';
 import { use, useState } from 'react';
 import { Root } from '@/types';
@@ -43,14 +42,14 @@ export default function Podcast({params}: PodcastProps) {
 		</div>
 	)
 
-	const shouldTruncate = data?.data?.description.length > maxChars;
+	const shouldTruncate = data && data?.data?.description.length > maxChars;
 
 	return (
 		<div className="pb-[174px]">
 			<div className="md:h-[435px] bg-linear-[133.14deg] from-[#2B3221] from-[9.11%] to-[#F2F2F200] to-[298.89%] lg:mt-[144px] mt-[100px] md:py-0 py-[20px] sm:px-0 px-4">
 				<div className="container flex md:flex-row flex-col h-full items-center gap-[25px] mx-auto relative">
 					<div className="md:block hidden">
-						<SharedModel>
+						<SharedModel link="">
 							<button type="button" className="absolute right-0 top-[40px] cursor-pointer">
 								<Image
 									src="/assets/images/icons/white-share.svg"
@@ -76,7 +75,7 @@ export default function Podcast({params}: PodcastProps) {
 							<div className="flex items-center mb-[20px]">
 								<p className="text-[14px] text-[#BFBFBF] font-[800]">PODCAST</p>
 								<div className="md:hidden">
-									<SharedModel>
+									<SharedModel link="">
 										<button type="button" className="ml-2 size-[14px] cursor-pointer">
 											<Image
 												src="/assets/images/icons/white-share.svg"
@@ -142,13 +141,13 @@ export default function Podcast({params}: PodcastProps) {
 			</div>
 			<div className="container mx-auto sm:px-0 px-4">
 				<div className="mt-[51px] mb-[19px]">
-					<p className="text-[14px] font-[800]">ALL EPISODES  <span className="font-[500]">(3 AVAILABLE)</span></p>
+					<p className="text-[14px] font-[800]">ALL EPISODES  <span className="font-[500]">({episodes ? episodes?.data?.data?.data.length : 0} AVAILABLE)</span></p>
 				</div>
 				<div className="flex flex-1 w-full gap-[163px]">
 					<div className="pb-[100px] w-full">
 						<div className="w-full pb-[42px]">
 							{
-								episodes?.data?.data?.data.map((item:Root, index:number) => (
+								episodes && episodes?.data?.data?.data.map((item:Root, index:number) => (
 									<div className={episodes?.data?.data?.data.length == 1+index ? 'border-b' : ''} key={index}>
 										<PodcastCard data={item} />
 									</div>

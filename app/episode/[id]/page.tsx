@@ -32,8 +32,10 @@ export default function Podcast({params}: PodcastProps) {
 
 	const episodes = useQuery({
 		queryKey: ['episodes'],
-		queryFn: () => getData(`listeners/podcasts/${paramsBlack.id}/episodes?page=1&per_page=15`),
+		queryFn: () => getData(`listeners/podcasts/${data.data.podcast.id}/episodes?page=1&per_page=15`),
 	})
+
+	console.log(data);
 	
 	const [isExpanded, setIsExpanded] = useState<boolean>(false);
 	const toggleReadMore = () => setIsExpanded(prev => !prev);
@@ -45,7 +47,7 @@ export default function Podcast({params}: PodcastProps) {
 		</div>
 	)
 
-	const shouldTruncate = data?.data?.description.length > maxChars;
+	const shouldTruncate = data && data?.data?.description.length > maxChars;
 
 	return (
 		<div className="pb-[79px]">
