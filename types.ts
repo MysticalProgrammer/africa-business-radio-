@@ -1,4 +1,5 @@
 export interface Root {
+  length: number
   id: number
   user_id: number
   title: string
