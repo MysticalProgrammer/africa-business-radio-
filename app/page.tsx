@@ -41,8 +41,12 @@ export default function Home() {
     queryFn: () => getData('listeners/top-podcasts?page=1&per_page=20'),
   })
 
-  const turnArrayToObject = (array:Root[]) => {
-    return array.reduce((acc, item) => {
+  type CategorizedData = {
+    [category: string]: Root[];
+  };
+
+  const turnArrayToObject = (category:Root[]) => {
+    return category.reduce<CategorizedData>((acc, item) => {
       if(item.category_name){
         if (!acc[`${item.category_name}`]) {
           acc[item.category_name] = [];
