@@ -18,7 +18,6 @@ import { Sponsors } from '@/components/partials/landing-page/sponsors.component'
 import { useQuery } from '@tanstack/react-query';
 import { getData } from '@/lib/utils';
 import { Icon } from '@iconify/react';
-import { Root } from '@/types';
 
 export default function Home() {
   const editorspick = useQuery({
