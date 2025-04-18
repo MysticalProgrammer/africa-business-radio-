@@ -43,6 +43,7 @@ export default function Home() {
 
   const turnArrayToObject = (category:Root[]) => {
     return category.reduce((acc, item) => {
+       // @ts-expect-error: key may be seen null
       const key = item.category_name ?? 'unnamed category';
       
       // @ts-expect-error: key may be seen null
@@ -63,8 +64,6 @@ export default function Home() {
   title: string;
   // ... other fields
 }
-
-type GroupedData = Record<string, Root[]>;
 
 
   if(editorspick.isLoading || trending.isLoading || latestEpisode.isLoading || categories.isLoading) return (
