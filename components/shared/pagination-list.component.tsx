@@ -50,7 +50,7 @@ export function PaginationList({ data }: Pagination) {
 			<button
 				type="button"
 				className="cursor-pointer"
-				disabled={currentPage == data.last_page}
+				disabled={currentPage == parseInt(data.last_page)}
 				onClick={() => goToPage(currentPage + 1)}
 			>
 				<Icon icon="bxs:right-arrow" className="size-[16px]" />
