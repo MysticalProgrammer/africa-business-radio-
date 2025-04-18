@@ -41,21 +41,19 @@ export default function Home() {
     queryFn: () => getData('listeners/top-podcasts?page=1&per_page=20'),
   })
 
-  type CategorizedData = {
-    [category: string]: Root[];
-  };
+  type CategorizedObject = {
+  [category: string]: Root[];
+};
 
   const turnArrayToObject = (category:Root[]) => {
-    return category.reduce<CategorizedData>((acc, item) => {
-      if(item.category_name){
-        if (!acc[`${item.category_name}`]) {
-          acc[item.category_name] = [];
-        }
-  
-        acc[item.category_name]?.push(item);
-      }else{
-        acc['un named category']?.push(item);
+    return category.reduce((acc:CategorizedObject, item) => {
+      const key:string = item.category_name ?? 'unnamed category';
+      
+      if (!acc[`${key}`]) {
+        acc[key] = [];
       }
+
+      acc[key]?.push(item);
       return acc;
     }, {});
   };

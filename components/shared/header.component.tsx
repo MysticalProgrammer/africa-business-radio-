@@ -10,6 +10,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@components/ui/sheet";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
 const menu = [
 	{
@@ -73,8 +78,15 @@ export function Header() {
 							}
 						</nav>
 						<div className="relative">
-							<Icon icon="mynaui:search" className="size-[13px] absolute top-[50%] translate-y-[-50%] ml-[19px] text-white" />
-							<Input type="text" placeholder="Search" className="h-[43px] w-[192px] rounded-[32px] pl-[35px] bg-[#00000052] text-white placeholder-white !border-0" />
+							<Popover>
+								<PopoverTrigger>
+									<Icon icon="mynaui:search" className="size-[13px] absolute top-[50%] translate-y-[-50%] ml-[19px] text-white" />
+									<Input type="text" placeholder="Search" className="h-[43px] w-[192px] rounded-[32px] pl-[35px] bg-[#00000052] text-white placeholder-white !border-0" />
+								</PopoverTrigger>
+								<PopoverContent>
+									<p className="truncate">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, obcaecati laborum itaque eum dolorem fuga iure voluptas porro minus ipsum nisi. Odio debitis vero culpa velit modi tenetur nihil labore?</p>
+								</PopoverContent>
+							</Popover>
 						</div>
 					</div>
 				</div>

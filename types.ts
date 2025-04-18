@@ -3,7 +3,7 @@ export interface Root {
   user_id: number
   title: string
   author: string
-  category_name: string | null
+  category_name: string | ''
   category_type: string
   picture_url: string
   cover_picture_url: string | null
