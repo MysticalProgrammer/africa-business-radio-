@@ -60,7 +60,7 @@ export default function Podcast({params}: {params:PodcastProps}) {
 						</Link>
 					</div>
 					<div className="flex md:flex-row flex-col gap-[15px] sm:px-0 px-4">
-						<div className="min-w-[157px] w-[157px] h-[129px] rounded-[3px] bg-yellow-200">
+						<div className="min-w-[157px] w-[157px] h-[129px] rounded-[3px]">
 							<Image
 								src={data.data.picture_url}
 								width={1000}
