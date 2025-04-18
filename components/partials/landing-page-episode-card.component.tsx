@@ -19,11 +19,11 @@ export function LandingPageEpisodeCard({data}: {data:Root}) {
 				<Link href={`/podcasts/${data.id}`}>
 					<div className='h-[187px]'>
 						<Image
-						src={data.picture_url}
+						src={data.picture_url ?? '/assets/images/ABR Logo 1.png'}
 						width={1000}
 						height={1000}
 						style={{ objectFit: "cover", width: "100%", height: "100%" }}
-						alt={data.title}
+						alt={data.title ?? 'ABR Logo'}
 						/>
 					</div>
 				</Link>

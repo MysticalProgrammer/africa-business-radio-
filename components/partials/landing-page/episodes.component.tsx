@@ -13,6 +13,8 @@ interface MultipleAdsDisplayProps {
 }
 
 export function Episodes({title, data}: MultipleAdsDisplayProps) {
+	console.log(data);
+
 	return (
 
 		<div className='container mx-auto space-y-[35px] sm:px-0 px-4'>
@@ -24,7 +26,7 @@ export function Episodes({title, data}: MultipleAdsDisplayProps) {
 			</div>
 			<CarouselModal withButtons={false}>
 				{
-					data && data.length && data[1].map((item:Root, index:number) => (
+					data && data.length && data.map((item:Root, index:number) => (
 						<CarouselItem className="basis-[265px]" key={index}>
 							<LandingPageEpisodeCard data={item} />
 						</CarouselItem>

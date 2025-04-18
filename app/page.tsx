@@ -43,7 +43,7 @@ export default function Home() {
 
   const turnArrayToObject = (category:Root[]) => {
     return category.reduce((acc, item) => {
-      const key:string = item.category_name ?? 'unnamed category';
+      const key = item.category_name ?? 'unnamed category';
       
       // @ts-expect-error: key may be seen null
       if (!acc[`${key}`]) {
@@ -57,6 +57,14 @@ export default function Home() {
       return acc;
     }, {});
   };
+
+  interface Root {
+  id: number;
+  title: string;
+  // ... other fields
+}
+
+type GroupedData = Record<string, Root[]>;
 
 
   if(editorspick.isLoading || trending.isLoading || latestEpisode.isLoading || categories.isLoading) return (
@@ -93,6 +101,7 @@ export default function Home() {
         </TitleTag>
       </div>
       {
+        // @ts-expect-error: key may not be seen
         categories && categories.data?.data?.data && <Episodes title={Object.entries(turnArrayToObject(categories.data?.data?.data))[0][0]} data={Object.entries(turnArrayToObject(categories.data?.data?.data))[1]} />
       }
       <AdsBoard>
