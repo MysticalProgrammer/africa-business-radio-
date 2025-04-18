@@ -13,11 +13,7 @@ import { Icon } from "@iconify/react";
 import { PaginationList } from "@/components/shared/pagination-list.component";
 import { useSearchParams } from "next/navigation";
 
-type PodcastProps = Promise<{
-	params?: {
-		id: string;
-	};
-}>
+type PodcastProps = Promise<{ id: string }>;
 
 const maxChars = 500;
 

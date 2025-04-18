@@ -30,7 +30,6 @@ export function Episodes({title, data}: MultipleAdsDisplayProps) {
 						</CarouselItem>
 					))
 				}
-				
 			</CarouselModal>
 		</div>
 	);

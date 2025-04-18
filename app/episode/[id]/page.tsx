@@ -17,11 +17,8 @@ import { useSearchParams } from 'next/navigation';
 
 const maxChars = 500;
 
-type PodcastProps = Promise<{
-	params: {
-		id: string;
-	};
-}>
+type PodcastProps = Promise<{ id: string }>;
+
 
 export default function Podcast({params}: {params:PodcastProps}) {
 	const getParams = use(params);
