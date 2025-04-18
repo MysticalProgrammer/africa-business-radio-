@@ -18,6 +18,7 @@ import { Sponsors } from '@/components/partials/landing-page/sponsors.component'
 import { useQuery } from '@tanstack/react-query';
 import { getData } from '@/lib/utils';
 import { Icon } from '@iconify/react';
+import { Root } from '@/types';
 
 export default function Home() {
   const editorspick = useQuery({
@@ -40,7 +41,7 @@ export default function Home() {
     queryFn: () => getData('listeners/top-podcasts?page=1&per_page=20'),
   })
 
-  const turnArrayToObject = (array) => {
+  const turnArrayToObject = (array:Root[]) => {
     return array.reduce((acc, item) => {
       if (!acc[item.category_name]) {
         acc[item.category_name] = [];
