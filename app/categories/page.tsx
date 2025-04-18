@@ -42,10 +42,12 @@ export default function Categories() {
 
 	
 	if(podcasts.isLoading) return (
-		<div className='fixed grid place-content-center z-[999999] bg-black text-white w-screen h-screen'>
-		<Icon icon="svg-spinners:pulse-multiple" width="200" height="200" />
-		<p className='text-center'>Loading...</p>
-		</div>
+		<Suspense fallback={<div>Loading...</div>}>
+			<div className='fixed grid place-content-center z-[999999] bg-black text-white w-screen h-screen'>
+			<Icon icon="svg-spinners:pulse-multiple" width="200" height="200" />
+			<p className='text-center'>Loading...</p>
+			</div>
+		</Suspense>
 	)
 
 	return (
